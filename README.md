@@ -180,11 +180,10 @@ project-dashboard/
 
 ## 📸 Screenshots
 
-> *Add screenshots of your application here.*
 
 | Kanban Board | Calendar View | Members |
 |:---:|:---:|:---:|
-| ![Kanban](screenshots/kanban.png) | ![Calendar](screenshots/calendar.png) | ![Members](screenshots/members.png) |
+| ![Kanban](image.png) | ![Calendar](image-1.png) | ![Members](image-2.png) |
 
 ---
 
@@ -243,3 +242,4 @@ This project was developed as a university coursework project for the **Web Prog
 ---
 
 <p align="center">Made with ❤️ using PHP, MySQL & JavaScript</p>
+
