@@ -1,0 +1,28 @@
+<div class="page-header">
+    <h2>My Tasks</h2>
+    <div class="filter-bar">
+        <select id="statusFilter" class="form-select" onchange="filterByStatus(this.value)">
+            <option value="">All Status</option>
+            <option value="todo">To Do</option>
+            <option value="in_progress">In Progress</option>
+            <option value="done">Done</option>
+        </select>
+    </div>
+</div>
+
+<div class="tasks-list" id="tasksList">
+    <div class="loading-spinner">Loading tasks...</div>
+</div>
+
+<!-- Task Detail Modal -->
+<div id="taskDetailModal" class="modal">
+    <div class="modal-content modal-lg">
+        <div class="modal-header">
+            <h2 id="taskDetailTitle">Task Details</h2>
+            <button class="modal-close" onclick="closeTaskDetail()">&times;</button>
+        </div>
+        <div class="modal-body" id="taskDetailContent">
+            <!-- Loaded via JavaScript -->
+        </div>
+    </div>
+</div>

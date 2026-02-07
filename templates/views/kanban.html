@@ -1,0 +1,143 @@
+<!-- Board Header -->
+<div class="board-header">
+    <div class="filter-bar">
+        <select id="projectFilter" class="form-select" onchange="filterByProject(this.value)">
+            <option value="">All Projects</option>
+            <!-- Projects loaded via JavaScript -->
+        </select>
+        <button class="btn btn-secondary btn-sm" id="viewProjectFilesBtn" onclick="openProjectFilesModal()" style="display: none;">
+            📎 View Files
+        </button>
+    </div>
+    
+    <button class="btn btn-primary" id="addTaskBtn" onclick="openTaskModal()" style="display: none;">+ Add Task</button>
+</div>
+
+<!-- Project Files Info Bar (shown when project is selected) -->
+<div id="projectFilesBar" class="project-files-bar" style="display: none;">
+    <div class="project-files-info">
+        <span id="projectFilesCount">📎 0 files attached</span>
+    </div>
+</div>
+
+<!-- Kanban Board -->
+<div class="kanban-board">
+    <div class="kanban-column" data-status="todo">
+        <div class="column-header">
+            <h3>To Do</h3>
+            <span class="task-count" id="todo-count">0</span>
+        </div>
+        <div class="column-content" id="todo-column"></div>
+    </div>
+    
+    <div class="kanban-column" data-status="in_progress">
+        <div class="column-header">
+            <h3>In Progress</h3>
+            <span class="task-count" id="in_progress-count">0</span>
+        </div>
+        <div class="column-content" id="in_progress-column"></div>
+    </div>
+    
+    <div class="kanban-column" data-status="done">
+        <div class="column-header">
+            <h3>Done</h3>
+            <span class="task-count" id="done-count">0</span>
+        </div>
+        <div class="column-content" id="done-column"></div>
+    </div>
+</div>
+
+<!-- Task Modal -->
+<div id="taskModal" class="modal">
+    <div class="modal-content modal-lg">
+        <div class="modal-header">
+            <h2 id="taskModalTitle">Add Task</h2>
+            <button class="modal-close" onclick="closeTaskModal()">&times;</button>
+        </div>
+        <form id="taskForm" onsubmit="saveTask(event)">
+            <input type="hidden" id="taskId" name="task_id">
+            <div class="modal-body">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="taskTitle">Title *</label>
+                        <input type="text" id="taskTitle" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskProject">Project</label>
+                        <select id="taskProject" name="project_id">
+                            <option value="">No Project</option>
+                            <!-- Loaded via JavaScript -->
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="taskDescription">Description</label>
+                    <textarea id="taskDescription" name="description" rows="3"></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="taskAssignee">Assign To</label>
+                        <select id="taskAssignee" name="assigned_to">
+                            <option value="">Unassigned</option>
+                            <!-- Loaded via JavaScript -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskDueDate">Due Date</label>
+                        <input type="date" id="taskDueDate" name="due_date">
+                    </div>
+                    <div class="form-group">
+                        <label for="taskPriority">Priority</label>
+                        <select id="taskPriority" name="priority">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Subtasks Section for New Tasks -->
+                <div class="form-group" id="newTaskSubtasks">
+                    <label>Subtasks</label>
+                    <div id="tempSubtasksList" class="subtasks-list"></div>
+                    <div class="add-subtask-form">
+                        <input type="text" id="tempSubtaskInput" placeholder="Add a subtask...">
+                        <button type="button" class="btn btn-sm btn-secondary" onclick="addTempSubtask()">Add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeTaskModal()">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save Task</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Task Detail Modal -->
+<div id="taskDetailModal" class="modal">
+    <div class="modal-content modal-lg">
+        <div class="modal-header">
+            <h2 id="taskDetailTitle">Task Details</h2>
+            <button class="modal-close" onclick="closeTaskDetail()">&times;</button>
+        </div>
+        <div class="modal-body" id="taskDetailContent">
+            <!-- Loaded via JavaScript -->
+        </div>
+    </div>
+</div>
+
+<!-- Project Files Modal -->
+<div id="projectFilesModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="projectFilesModalTitle">Project Files</h2>
+            <button class="modal-close" onclick="closeProjectFilesModal()">&times;</button>
+        </div>
+        <div class="modal-body" id="projectFilesContent">
+            <div class="loading-spinner">Loading files...</div>
+        </div>
+    </div>
+</div>

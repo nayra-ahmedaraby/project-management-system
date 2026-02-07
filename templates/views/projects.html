@@ -1,0 +1,74 @@
+<div class="page-header">
+    <h2>Manage Projects</h2>
+    <div class="header-actions">
+        <button class="btn btn-secondary" onclick="toggleArchive()" id="archiveToggle">Show Archive</button>
+        <button class="btn btn-primary" onclick="openProjectModal()">+ New Project</button>
+    </div>
+</div>
+
+<!-- Active Projects -->
+<div id="activeProjects">
+    <div class="projects-grid" id="projectsGrid">
+        <div class="loading-spinner">Loading projects...</div>
+    </div>
+</div>
+
+<!-- Archived Projects -->
+<div id="archivedProjects" style="display: none;">
+    <h3 class="section-title">📦 Archived Projects</h3>
+    <p class="section-desc">Projects completed more than 2 days ago</p>
+    <div class="projects-grid" id="archivedProjectsGrid">
+        <!-- Loaded via JavaScript -->
+    </div>
+</div>
+
+<!-- Project Modal -->
+<div id="projectModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="projectModalTitle">New Project</h2>
+            <button class="modal-close" onclick="closeProjectModal()">&times;</button>
+        </div>
+        <form id="projectForm" onsubmit="saveProject(event)">
+            <input type="hidden" id="projectId" name="project_id">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="projectName">Project Name *</label>
+                    <input type="text" id="projectName" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="projectDescription">Description</label>
+                    <textarea id="projectDescription" name="description" rows="3"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="projectColor">Color</label>
+                    <input type="color" id="projectColor" name="color" value="#6366f1">
+                </div>
+                
+                <!-- Existing Files Section (shown when editing) -->
+                <div class="form-group" id="existingFilesSection" style="display: none;">
+                    <label>Attached Files</label>
+                    <div id="existingFilesList" class="project-files-list"></div>
+                </div>
+                
+                <!-- New Files Section -->
+                <div class="form-group" id="projectFilesSection">
+                    <label>Add Files</label>
+                    <div class="file-upload-area" id="projectFileDropZone">
+                        <div class="upload-icon">📁</div>
+                        <p>Drop files here or click to browse</p>
+                        <input type="file" id="projectFileInput" multiple style="display: none;">
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById('projectFileInput').click()">Choose Files</button>
+                    </div>
+                    <div id="projectFilesList" class="project-files-list"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeProjectModal()">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save Project</button>
+            </div>
+        </form>
+    </div>
+</div>

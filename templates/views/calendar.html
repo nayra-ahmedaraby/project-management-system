@@ -1,0 +1,44 @@
+<div class="calendar-header">
+    <div class="calendar-nav">
+        <a href="#" id="prevMonthBtn" class="btn btn-secondary">&lt; Prev</a>
+        <h2 id="calendarMonthName">Loading...</h2>
+        <a href="#" id="nextMonthBtn" class="btn btn-secondary">Next &gt;</a>
+    </div>
+    <a href="#" id="todayBtn" class="btn btn-primary">Today</a>
+</div>
+
+<div class="calendar">
+    <div class="calendar-weekdays">
+        <div class="weekday">Sun</div>
+        <div class="weekday">Mon</div>
+        <div class="weekday">Tue</div>
+        <div class="weekday">Wed</div>
+        <div class="weekday">Thu</div>
+        <div class="weekday">Fri</div>
+        <div class="weekday">Sat</div>
+    </div>
+    <div class="calendar-days" id="calendarDays">
+        <!-- Loaded via JavaScript -->
+    </div>
+</div>
+
+<!-- Upcoming Tasks -->
+<div class="upcoming-section">
+    <h3>Upcoming Deadlines</h3>
+    <div class="upcoming-tasks" id="upcomingTasks">
+        <!-- Loaded via JavaScript -->
+    </div>
+</div>
+
+<!-- Task Detail Modal -->
+<div id="taskDetailModal" class="modal">
+    <div class="modal-content modal-lg">
+        <div class="modal-header">
+            <h2 id="taskDetailTitle">Task Details</h2>
+            <button class="modal-close" onclick="closeTaskDetail()">&times;</button>
+        </div>
+        <div class="modal-body" id="taskDetailContent">
+            <!-- Loaded via JavaScript -->
+        </div>
+    </div>
+</div>
