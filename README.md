@@ -183,7 +183,7 @@ project-dashboard/
 
 | Kanban Board | Calendar View | Members |
 |:---:|:---:|:---:|
-| ![Kanban](image.png) | ![Calendar](image-1.png) | ![Members](image-2.png) |
+| ![Kanban](screenshots/image.png) | ![Calendar](screenshots/image-1.png) | ![Members](screenshots/image-2.png) |
 
 ---
 
@@ -242,4 +242,5 @@ This project was developed as a university coursework project for the **Web Prog
 ---
 
 <p align="center">Made with ❤️ using PHP, MySQL & JavaScript</p>
+
 
